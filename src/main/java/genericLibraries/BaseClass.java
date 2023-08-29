@@ -7,8 +7,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 
 import pomPages.AddressFormPage;
 import pomPages.CartPage;
@@ -53,7 +51,9 @@ public class BaseClass {
 	}
 	@BeforeMethod
 	public void methodConfiguration() {
-		driver=webUtil.navigateToApp(property.getData("browser"), property.getData("url"),Long.parseLong(property.getData("time")));
+		driver=webUtil.navigateToApp(property.getData("browser"),
+				property.getData("url"),
+				Long.parseLong(property.getData("time")));
 		sdriver=driver;
 		
 		welcome=new WelcomePage(driver);
